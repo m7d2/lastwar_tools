@@ -1,284 +1,552 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tier 10 Progress Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1433872892372335"
-    crossorigin="anonymous"></script>
-</head>
-<body>
-    <div>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
         <h1>Last War: Survival</h1>
         <h2>Tier 10 Research Calculator</h2>
-        <p>Enter your current research levels, including those in progress, to see how many resources you still need to complete the remaining researches to unlock Tier X troops.</p>
-        <p class="disclaimer">Please note that these values may not be exact. There is conflicting information online for these researches, and I forgot to capture most of the values personally.</p>
+      </header>
+
+      <div class="intro">
+        <p>
+          Enter your current research levels, including those in progress, to
+          see how many resources you still need to complete the remaining
+          researches to unlock Tier X troops.
+        </p>
+        <p class="disclaimer">
+          Please note that these values may not be exact. There is conflicting
+          information online for these researches, and I forgot to capture most
+          of the values personally. This website has been completely overhauled
+          and enhanced by Duck 🦆 (AKA M7D2)
+        </p>
+      </div>
+
+      <div class="tech-tree">
+        <div class="tech-node apNode">
+          <div class="node-title">Technology</div>
+          <label for="adv-prot-lvl">Advanced Protection Level</label>
+          <div class="select-div">
+            <select name="adv-prot-lvl" id="adv-prot-lvl">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="results-container">
+            <div id="advProtGoldResultDiv">
+              <span><span class="resource-icon icon-gold">⚱️</span> Gold:</span>
+              <span>0</span>
+            </div>
+            <div id="advProtValorResultDiv">
+              <span
+                ><span class="resource-icon icon-valor">🏆</span> Valor:</span
+              >
+              <span>0</span>
+            </div>
+            <div id="advProtFoodIronResultDiv">
+              <span
+                ><span class="resource-icon icon-resources">🍖</span> Food &
+                Iron:</span
+              >
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-node hpNode">
+          <div class="node-title">Health Research</div>
+          <label for="healthLvl">Health Boost III Level</label>
+          <div class="select-div">
+            <select name="healthLvl" id="healthLvl">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="results-container">
+            <div id="healthGoldResultDiv">
+              <span><span class="resource-icon icon-gold">⚱️</span> Gold:</span>
+              <span>0</span>
+            </div>
+            <div id="healthValorResultDiv">
+              <span
+                ><span class="resource-icon icon-valor">🏆</span> Valor:</span
+              >
+              <span>0</span>
+            </div>
+            <div id="healthFoodIronResultDiv">
+              <span
+                ><span class="resource-icon icon-resources">🍖</span> Food &
+                Iron:</span
+              >
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-node attNode">
+          <div class="node-title">Attack Research</div>
+          <label for="attackLvl">Attack Boost III Level</label>
+          <div class="select-div">
+            <select name="attackLvl" id="attackLvl">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="results-container">
+            <div id="attackGoldResultDiv">
+              <span><span class="resource-icon icon-gold">⚱️</span> Gold:</span>
+              <span>0</span>
+            </div>
+            <div id="attackValorResultDiv">
+              <span
+                ><span class="resource-icon icon-valor">🏆</span> Valor:</span
+              >
+              <span>0</span>
+            </div>
+            <div id="attackFoodIronResultDiv">
+              <span
+                ><span class="resource-icon icon-resources">🍖</span> Food &
+                Iron:</span
+              >
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-node defNode">
+          <div class="node-title">Defense Research</div>
+          <label for="defenseLvl">Defense Boost III Level</label>
+          <div class="select-div">
+            <select name="defenseLvl" id="defenseLvl">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="results-container">
+            <div id="defenseGoldResultDiv">
+              <span><span class="resource-icon icon-gold">⚱️</span> Gold:</span>
+              <span>0</span>
+            </div>
+            <div id="defenseValorResultDiv">
+              <span
+                ><span class="resource-icon icon-valor">🏆</span> Valor:</span
+              >
+              <span>0</span>
+            </div>
+            <div id="defenseFoodIronResultDiv">
+              <span
+                ><span class="resource-icon icon-resources">🍖</span> Food &
+                Iron:</span
+              >
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="totals">
+        <div class="total-item gold-border">
+          <div class="total-label">
+            <span class="resource-icon icon-gold">⚱️</span> Total Gold Required:
+          </div>
+          <div id="totalGoldRemainingDiv" class="total-value">0</div>
+        </div>
+
+        <div class="total-item valor-border">
+          <div class="total-label">
+            <span class="resource-icon icon-valor">🏆</span> Total Valor
+            Required:
+          </div>
+          <div id="totalValorRemainingDiv" class="total-value">0</div>
+        </div>
+
+        <div class="total-item resources-border">
+          <div class="total-label">
+            <span class="resource-icon icon-resources">🍖</span> Total Food &
+            Iron Required:
+          </div>
+          <div id="totalFoodIronRemainingDiv" class="total-value">0</div>
+        </div>
+      </div>
     </div>
-    <div class="tech-tree">
-        <div class="apNode tech-node">
-            <label for="adv-prot-lvl">Advanced Protection Level</label>
-            <div class="select-div">
-                <select name="adv-prot-lvl" id="adv-prot-lvl">
-                    <option value=0>0</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                </select>
-            </div>
-            <div class="results-container">
-                <div id="advProtGoldResultDiv" class="select-div"></div>
-                <div id="advProtValorResultDiv" class="select-div"></div>
-                <div id="advProtFoodIronResultDiv" class="select-div"></div>
-            </div>
-        </div>
-        <div class="hpNode tech-node">
-            <label for="healthLvl">Health Boost III Level</label>
-            <div class="select-div">
-                <select name="healthLvl" id="healthLvl">
-                    <option value=0>0</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                </select>
-            </div>
-            <div class="results-container">
-                <div id="healthGoldResultDiv" class="select-div"></div>
-                <div id="healthValorResultDiv" class="select-div"></div>
-                <div id="healthFoodIronResultDiv" class="select-div"></div>
-            </div>
-        </div>
-        <div class="attNode tech-node">
-            <label for="attackLvl">Attack Boost III Level</label>
-            <div class="select-div">
-                <select name="attackLvl" id="attackLvl">
-                    <option value=0>0</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                </select>
-            </div>
-            <div class="results-container">
-                <div id="attackGoldResultDiv" class="select-div"></div>
-                <div id="attackValorResultDiv" class="select-div"></div>
-                <div id="attackFoodIronResultDiv" class="select-div"></div>
-            </div>
-        </div>
-        <div class="defNode tech-node">
-            <label for="defenseLvl">Defense Boost III Level</label>
-            <div class="select-div">
-                <select name="defenseLvl" id="defenseLvl">
-                    <option value=0>0</option>
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                    <option value=6>6</option>
-                    <option value=7>7</option>
-                    <option value=8>8</option>
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                </select>
-            </div>
-            <div class="results-container">
-                <div id="defenseGoldResultDiv" class="select-div"></div>
-                <div id="defenseValorResultDiv" class="select-div"></div>
-                <div id="defenseFoodIronResultDiv" class="select-div"></div>
-            </div>
-        </div>
-    </div>
-
-    <p>Total amount of gold still needed for tier 10 troop research</p>
-    <div id="totalGoldRemainingDiv"></div>
-    <br>
-    <p>Total amount of valor still needed for tier 10 troop research</p>
-    <div id="totalValorRemainingDiv"></div>
-    <br>
-    <p>Total amount of Food and Iron still needed for tier 10 troop research</p>
-    <div id="totalFoodIronRemainingDiv"></div>
-
-
 
     <script>
-        const advancedProtectionGold = [
-            64600000,92300000,92300000,158000000,158000000,221000000,221000000,287000000,287000000,403000000
-        ];
+      const advancedProtectionGold = [
+        64600000, 92300000, 92300000, 158000000, 158000000, 221000000,
+        221000000, 287000000, 287000000, 403000000,
+      ];
 
-        const advancedProtectionValor = [
-            1280,1440,1440,1600,1600,1800,1800,2000,2000,2000
-        ];
+      const advancedProtectionValor = [
+        1280, 1440, 1440, 1600, 1600, 1800, 1800, 2000, 2000, 2000,
+      ];
 
-        const advancedProtectionFoodIron = [
-            21700000,31000000,31000000,53000000,53000000,74000000,74000000,96000000,96000000,134000000
-        ]
+      const advancedProtectionFoodIron = [
+        21700000, 31000000, 31000000, 53000000, 53000000, 74000000, 74000000,
+        96000000, 96000000, 134000000,
+      ];
 
-        const boostThreeGold = [
-            92300000,158000000,158000000,221000000,221000000,287000000,287000000,403000000,403000000,563000000
-        ];
+      const boostThreeGold = [
+        92300000, 158000000, 158000000, 221000000, 221000000, 287000000,
+        287000000, 403000000, 403000000, 563000000,
+      ];
 
-        const boostThreeFoodIron = [
-            31000000,53000000,53000000,74000000,74000000,96000000,96000000,134000000,134000000,175000000
-        ];
+      const boostThreeFoodIron = [
+        31000000, 53000000, 53000000, 74000000, 74000000, 96000000, 96000000,
+        134000000, 134000000, 175000000,
+      ];
 
-        const boostThreeValor = [
-            1440,1600,1600,1800,1800,2000,2000,2200,2200,2400
-        ];
+      const boostThreeValor = [
+        1440, 1600, 1600, 1800, 1800, 2000, 2000, 2200, 2200, 2400,
+      ];
 
-        const tierTenGold = 563000000;
-        const tierTenFoodIron = 188000000
-        const tierTenValor = 2400
+      const tierTenGold = 563000000;
+      const tierTenFoodIron = 188000000;
+      const tierTenValor = 2400;
 
-        const advProtLvl = document.getElementById('adv-prot-lvl');
-        const hLvl = document.getElementById('healthLvl');
-        const aLvl = document.getElementById('attackLvl');
-        const dLvl = document.getElementById('defenseLvl');
-        
-        // Labels
-        const goldLabel = "Gold";
-        const valorLabel = "Valor";
-        const foodIronLabel = "Food and Iron";
+      const advProtLvl = document.getElementById("adv-prot-lvl");
+      const hLvl = document.getElementById("healthLvl");
+      const aLvl = document.getElementById("attackLvl");
+      const dLvl = document.getElementById("defenseLvl");
 
-        let protVal, protGold, protFoodIron = 0;
-        let healthVal, healthGold, healthFoodIron = 0;
-        let attackVal, attackGold, attackFoodIron = 0;
-        let defenseVal, defenseGold, defenseFoodIron = 0;
+      // Labels
+      const goldLabel = "Gold";
+      const valorLabel = "Valor";
+      const foodIronLabel = "Food and Iron";
 
-        // Advanced Protection Divs
-        const advProtGoldResultDiv = document.getElementById('advProtGoldResultDiv');
-        const advProtValorResultDiv = document.getElementById('advProtValorResultDiv');
-        const advProtFoodIronResultDiv = document.getElementById('advProtFoodIronResultDiv');
+      let protVal,
+        protGold,
+        protFoodIron = 0;
+      let healthVal,
+        healthGold,
+        healthFoodIron = 0;
+      let attackVal,
+        attackGold,
+        attackFoodIron = 0;
+      let defenseVal,
+        defenseGold,
+        defenseFoodIron = 0;
 
-        // Health Boost 3 Divs
-        const healthGoldResultDiv = document.getElementById('healthGoldResultDiv');
-        const healthValorResultDiv = document.getElementById('healthValorResultDiv');
-        const healthFoodIronResultDiv = document.getElementById('healthFoodIronResultDiv');
+      // Advanced Protection Divs
+      const advProtGoldResultDiv = document.getElementById(
+        "advProtGoldResultDiv"
+      );
+      const advProtValorResultDiv = document.getElementById(
+        "advProtValorResultDiv"
+      );
+      const advProtFoodIronResultDiv = document.getElementById(
+        "advProtFoodIronResultDiv"
+      );
 
-        // Attack Boost 3 Divs
-        const attackGoldResultDiv = document.getElementById('attackGoldResultDiv');
-        const attackValorResultDiv = document.getElementById('attackValorResultDiv');
-        const attackFoodIronResultDiv = document.getElementById('attackFoodIronResultDiv');
+      // Health Boost 3 Divs
+      const healthGoldResultDiv = document.getElementById(
+        "healthGoldResultDiv"
+      );
+      const healthValorResultDiv = document.getElementById(
+        "healthValorResultDiv"
+      );
+      const healthFoodIronResultDiv = document.getElementById(
+        "healthFoodIronResultDiv"
+      );
 
-        // Defense Boost 3 Divs
-        const defenseGoldResultDiv = document.getElementById('defenseGoldResultDiv');
-        const defenseValorResultDiv = document.getElementById('defenseValorResultDiv');
-        const defenseFoodIronResultDiv = document.getElementById('defenseFoodIronResultDiv');
+      // Attack Boost 3 Divs
+      const attackGoldResultDiv = document.getElementById(
+        "attackGoldResultDiv"
+      );
+      const attackValorResultDiv = document.getElementById(
+        "attackValorResultDiv"
+      );
+      const attackFoodIronResultDiv = document.getElementById(
+        "attackFoodIronResultDiv"
+      );
 
-        // Totals Divs
-        const totalGoldDiv = document.getElementById('totalGoldRemainingDiv');
-        const totalValorDiv = document.getElementById('totalValorRemainingDiv');
-        const totalFoodIronDiv = document.getElementById('totalFoodIronRemainingDiv');
+      // Defense Boost 3 Divs
+      const defenseGoldResultDiv = document.getElementById(
+        "defenseGoldResultDiv"
+      );
+      const defenseValorResultDiv = document.getElementById(
+        "defenseValorResultDiv"
+      );
+      const defenseFoodIronResultDiv = document.getElementById(
+        "defenseFoodIronResultDiv"
+      );
 
-        document.addEventListener('DOMContentLoaded', () => {
-            protGold = updateDiv(advProtLvl.value, advancedProtectionGold, advProtGoldResultDiv, goldLabel);
-            protVal = updateDiv(advProtLvl.value, advancedProtectionValor, advProtValorResultDiv, valorLabel);
-            protFoodIron = updateDiv(advProtLvl.value, advancedProtectionFoodIron, advProtFoodIronResultDiv, foodIronLabel);
+      // Totals Divs
+      const totalGoldDiv = document.getElementById("totalGoldRemainingDiv");
+      const totalValorDiv = document.getElementById("totalValorRemainingDiv");
+      const totalFoodIronDiv = document.getElementById(
+        "totalFoodIronRemainingDiv"
+      );
 
-            healthGold = updateDiv(hLvl.value, boostThreeGold, healthGoldResultDiv, goldLabel);
-            healthVal = updateDiv(hLvl.value, boostThreeValor, healthValorResultDiv, valorLabel);
-            healthFoodIron = updateDiv(hLvl.value, boostThreeFoodIron, healthFoodIronResultDiv, foodIronLabel);
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize variables first
+        protGold = updateDiv(
+          advProtLvl.value,
+          advancedProtectionGold,
+          advProtGoldResultDiv,
+          goldLabel
+        );
+        protVal = updateDiv(
+          advProtLvl.value,
+          advancedProtectionValor,
+          advProtValorResultDiv,
+          valorLabel
+        );
+        protFoodIron = updateDiv(
+          advProtLvl.value,
+          advancedProtectionFoodIron,
+          advProtFoodIronResultDiv,
+          foodIronLabel
+        );
 
-            attackGold = updateDiv(aLvl.value, boostThreeGold, attackGoldResultDiv, goldLabel);
-            attackVal = updateDiv(aLvl.value, boostThreeValor, attackValorResultDiv, valorLabel);
-            attackFoodIron = updateDiv(aLvl.value, boostThreeFoodIron, attackFoodIronResultDiv, foodIronLabel);
-            
-            defenseGold = updateDiv(dLvl.value, boostThreeGold, defenseGoldResultDiv, goldLabel);
-            defenseVal = updateDiv(dLvl.value, boostThreeValor, defenseValorResultDiv, valorLabel);
-            defenseFoodIron = updateDiv(dLvl.value, boostThreeFoodIron, defenseFoodIronResultDiv, foodIronLabel);
+        healthGold = updateDiv(
+          hLvl.value,
+          boostThreeGold,
+          healthGoldResultDiv,
+          goldLabel
+        );
+        healthVal = updateDiv(
+          hLvl.value,
+          boostThreeValor,
+          healthValorResultDiv,
+          valorLabel
+        );
+        healthFoodIron = updateDiv(
+          hLvl.value,
+          boostThreeFoodIron,
+          healthFoodIronResultDiv,
+          foodIronLabel
+        );
 
-            updateTotals();
-        });
+        attackGold = updateDiv(
+          aLvl.value,
+          boostThreeGold,
+          attackGoldResultDiv,
+          goldLabel
+        );
+        attackVal = updateDiv(
+          aLvl.value,
+          boostThreeValor,
+          attackValorResultDiv,
+          valorLabel
+        );
+        attackFoodIron = updateDiv(
+          aLvl.value,
+          boostThreeFoodIron,
+          attackFoodIronResultDiv,
+          foodIronLabel
+        );
 
-        advProtLvl.addEventListener('change', (event) => {
-            protGold = updateDiv(event.target.value, advancedProtectionGold, advProtGoldResultDiv, goldLabel);
-            protVal = updateDiv(event.target.value, advancedProtectionValor, advProtValorResultDiv, valorLabel);
-            protFoodIron = updateDiv(event.target.value, advancedProtectionFoodIron, advProtFoodIronResultDiv, foodIronLabel);
-            updateTotals();
-            console.log("Protection Gold: ", protGold);
-            console.log("Protection Valor: ", protVal);
-            console.log("Advanced Protection Food and Iron: ", protFoodIron);
-        });
+        defenseGold = updateDiv(
+          dLvl.value,
+          boostThreeGold,
+          defenseGoldResultDiv,
+          goldLabel
+        );
+        defenseVal = updateDiv(
+          dLvl.value,
+          boostThreeValor,
+          defenseValorResultDiv,
+          valorLabel
+        );
+        defenseFoodIron = updateDiv(
+          dLvl.value,
+          boostThreeFoodIron,
+          defenseFoodIronResultDiv,
+          foodIronLabel
+        );
 
-        hLvl.addEventListener('change', (event) => {
-            healthGold = updateDiv(event.target.value, boostThreeGold, healthGoldResultDiv, goldLabel);
-            healthVal = updateDiv(event.target.value, boostThreeValor, healthValorResultDiv, valorLabel);
-            healthFoodIron = updateDiv(event.target.value, boostThreeFoodIron, healthFoodIronResultDiv, foodIronLabel);
-            updateTotals();
-            console.log("Health Gold: ", healthGold);
-            console.log("Health Valor: ", healthVal);
-            console.log("Health Food and Iron: ", healthFoodIron)
-        });
+        // Now update the totals
+        updateTotals();
+      });
 
-        aLvl.addEventListener('change', (event) => {
-            attackGold = updateDiv(event.target.value, boostThreeGold, attackGoldResultDiv, goldLabel);
-            attackVal = updateDiv(event.target.value, boostThreeValor, attackValorResultDiv, valorLabel);
-            attackFoodIron = updateDiv(event.target.value, boostThreeFoodIron, attackFoodIronResultDiv, foodIronLabel);
-            updateTotals();
-            console.log("Attack Gold: ", attackGold);
-            console.log("Attack Valor: ", attackVal);
-            console.log("Attack Food and Iron: ", attackFoodIron)
-        });
+      advProtLvl.addEventListener("change", (event) => {
+        protGold = updateDiv(
+          event.target.value,
+          advancedProtectionGold,
+          advProtGoldResultDiv,
+          goldLabel
+        );
+        protVal = updateDiv(
+          event.target.value,
+          advancedProtectionValor,
+          advProtValorResultDiv,
+          valorLabel
+        );
+        protFoodIron = updateDiv(
+          event.target.value,
+          advancedProtectionFoodIron,
+          advProtFoodIronResultDiv,
+          foodIronLabel
+        );
+        updateTotals();
+      });
 
-        dLvl.addEventListener('change', (event) => {
-            defenseGold = updateDiv(event.target.value, boostThreeGold, defenseGoldResultDiv, goldLabel);
-            defenseVal = updateDiv(event.target.value, boostThreeValor, defenseValorResultDiv, valorLabel);
-            defenseFoodIron = updateDiv(event.target.value, boostThreeFoodIron, defenseFoodIronResultDiv, foodIronLabel);
-            updateTotals();
-            console.log("Defense Gold: ", defenseGold);
-            console.log("Defense Valor: ", defenseVal);
-            console.log("Defense Food and Iron: ", defenseFoodIron);
-        });
+      hLvl.addEventListener("change", (event) => {
+        healthGold = updateDiv(
+          event.target.value,
+          boostThreeGold,
+          healthGoldResultDiv,
+          goldLabel
+        );
+        healthVal = updateDiv(
+          event.target.value,
+          boostThreeValor,
+          healthValorResultDiv,
+          valorLabel
+        );
+        healthFoodIron = updateDiv(
+          event.target.value,
+          boostThreeFoodIron,
+          healthFoodIronResultDiv,
+          foodIronLabel
+        );
+        updateTotals();
+      });
 
+      aLvl.addEventListener("change", (event) => {
+        attackGold = updateDiv(
+          event.target.value,
+          boostThreeGold,
+          attackGoldResultDiv,
+          goldLabel
+        );
+        attackVal = updateDiv(
+          event.target.value,
+          boostThreeValor,
+          attackValorResultDiv,
+          valorLabel
+        );
+        attackFoodIron = updateDiv(
+          event.target.value,
+          boostThreeFoodIron,
+          attackFoodIronResultDiv,
+          foodIronLabel
+        );
+        updateTotals();
+      });
 
-        function updateDiv(newValue, valuesArray, targetDiv, resource){
-            let totaledValues = sumRange(valuesArray, newValue, valuesArray.length-1);
-            targetDiv.textContent = totaledValues.toLocaleString() + " " + resource;
-            return totaledValues;
+      dLvl.addEventListener("change", (event) => {
+        defenseGold = updateDiv(
+          event.target.value,
+          boostThreeGold,
+          defenseGoldResultDiv,
+          goldLabel
+        );
+        defenseVal = updateDiv(
+          event.target.value,
+          boostThreeValor,
+          defenseValorResultDiv,
+          valorLabel
+        );
+        defenseFoodIron = updateDiv(
+          event.target.value,
+          boostThreeFoodIron,
+          defenseFoodIronResultDiv,
+          foodIronLabel
+        );
+        updateTotals();
+      });
+
+      function updateDiv(newValue, valuesArray, targetDiv, resource) {
+        let totaledValues = sumRange(
+          valuesArray,
+          newValue,
+          valuesArray.length - 1
+        );
+
+        // Get the second span (the value display element)
+        const valueSpan = targetDiv.querySelector("span:nth-child(2)");
+        if (valueSpan) {
+          valueSpan.textContent = totaledValues.toLocaleString();
+        } else {
+          // Fall back to the old method if the span structure isn't as expected
+          targetDiv.innerHTML = `<span><span class="resource-icon ${
+            resource === "Gold"
+              ? "icon-gold"
+              : resource === "Valor"
+              ? "icon-valor"
+              : "icon-resources"
+          }">${
+            resource === "Gold" ? "⚱️" : resource === "Valor" ? "🏆" : "🍖"
+          }</span> ${resource}:</span><span>${totaledValues.toLocaleString()}</span>`;
         }
 
-        function updateTotals(){
-            // update total gold
-            let totalGoldNum = healthGold + protGold + attackGold + defenseGold + tierTenGold;
-            totalGoldDiv.textContent = totalGoldNum.toLocaleString();
-            // update total valor
-            let totalValorNum = healthVal + protVal + attackVal + defenseVal + tierTenValor;
-            totalValorDiv.textContent = totalValorNum.toLocaleString();
-            // update total food and iron TODO
-            let totalFoodIronNum = healthFoodIron + protFoodIron + attackFoodIron + defenseFoodIron + tierTenFoodIron;
-            totalFoodIronDiv.textContent = totalFoodIronNum.toLocaleString();
+        return totaledValues;
+      }
+
+      function updateTotals() {
+        // update total gold
+        let totalGoldNum =
+          healthGold + protGold + attackGold + defenseGold + tierTenGold;
+        totalGoldDiv.textContent = totalGoldNum.toLocaleString();
+
+        // update total valor
+        let totalValorNum =
+          healthVal + protVal + attackVal + defenseVal + tierTenValor;
+        totalValorDiv.textContent = totalValorNum.toLocaleString();
+
+        // update total food and iron
+        let totalFoodIronNum =
+          healthFoodIron +
+          protFoodIron +
+          attackFoodIron +
+          defenseFoodIron +
+          tierTenFoodIron;
+        totalFoodIronDiv.textContent = totalFoodIronNum.toLocaleString();
+      }
+
+      function sumRange(arr, start, end) {
+        if (start < 0 || end >= arr.length || start > end) {
+          return 0; // Handle invalid input
         }
 
-        function sumRange(arr, start, end) {
-            if (start < 0 || end >= arr.length || start > end) {
-                return 0; // Handle invalid input
-            }
-
-            let sum = 0;
-            for (let i = start; i <= end; i++) {
-                sum += arr[i];
-            }
-            return sum;
+        let sum = 0;
+        for (let i = start; i <= end; i++) {
+          sum += arr[i];
         }
+        return sum;
+      }
     </script>
-
-</body>
+  </body>
 </html>
